@@ -41,3 +41,42 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 375188035
+    locked: 0
+  - name: May
+    uniqueID: 3617177555
+    locked: 0
+  - name: Nui
+    uniqueID: 3023465723
+    locked: 0
+  - name: May2
+    uniqueID: 876708285
+    locked: 0
+  - name: Song
+    uniqueID: 4284381231
+    locked: 0
+  - name: Tang Da
+    uniqueID: 735758693
+    locked: 0
+  - name: Dat
+    uniqueID: 3494789207
+    locked: 0
+  - name: Cay
+    uniqueID: 2570456095
+    locked: 0
+  - name: Obj1
+    uniqueID: 2449185695
+    locked: 0
+  - name: Obj2
+    uniqueID: 3159551
+    locked: 0
+  - name: Obj3
+    uniqueID: 3102390479
+    locked: 0
+  - name: Obj4
+    uniqueID: 1288250745
+    locked: 0
+  - name: GUI
+    uniqueID: 2469512343
+    locked: 0
