@@ -1,8 +1,1 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Vu.Nguyen/Scenes/raycast.unity
-=======
-- path: Assets/Vu.Nguyen/Scenes/Game.unity
->>>>>>> 45cd37feabaee26b95df55a659faf9358efb6be7
-  isLoaded: 1
-  isActive: 1
+sceneSetups: []
