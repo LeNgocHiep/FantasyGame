@@ -6,47 +6,64 @@ using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour {
 
+    public Text txt;
     public float scrollSpeed;
-    public Text text;
+    private Vector3 drag;
+    private Vector3 click; 
+    private Vector3 vitribandau;
 
-    
+    float timeDetectTouch = 0.3f;
+    bool flagNhan;
 
     //private Vector3 startPosition;
 
     void Start()
     {
-        //startPosition = transform.position;
+        click = Vector3.zero;
+        vitribandau = Vector3.zero;
     }
 
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetMouseButton(0))
         {
-            transform.Translate(new Vector3(transform.position.x - transform.position.x * Time.deltaTime * scrollSpeed, 0,0));
+            timeDetectTouch -= Time.deltaTime;
+            flagNhan = true;
+
+            if (click == Vector3.zero)
+            {
+                click = Input.mousePosition;
+                vitribandau = transform.position;
+            }
+            drag = Input.mousePosition;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+        if (!Input.GetMouseButton(0))
         {
-            transform.Translate(new Vector3(transform.position.x + transform.position.x * Time.deltaTime * scrollSpeed, 0, 0));
+            flagNhan = false;
         }
-
-
-        //foreach(Touch t in Input.touches)
-        //{
-        //    if (t.phase == TouchPhase.Began)
-        //    {
-        if (Input.GetMouseButtonDown(0))
+        //khi không nhấn nữa và thời gian nhấn lớn hơn 0 và đã click thì coi như là click
+        if (flagNhan == false && timeDetectTouch >= 0 && click != Vector3.zero)
         {
+            Debug.Log("click");
             RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (hit.collider == null)
-                text.text = "null";
+                txt.text = "null";
             else
-                text.text = hit.collider.name;
+                txt.text = hit.collider.name;
+            click = Vector3.zero;
         }
-        //    }
-        //}
+        //khi không nhấn nhưng thời gian nhấn giữ lâu
+        if (flagNhan == false && timeDetectTouch < 0 && click != Vector3.zero)
+        {
+            timeDetectTouch = 0.3f;
+            click = Vector3.zero;
+        }
+        if (click == Vector3.zero)
+            return;
+        if ((vitribandau.x + ((click.x - drag.x) * scrollSpeed) < 483f) && (vitribandau.x + ((click.x - drag.x) * scrollSpeed) > -435f))
+            transform.position = new Vector3(vitribandau.x + ((click.x - drag.x) * scrollSpeed),
+                -58, -500);
     }
-
-
-    
 }
+    
