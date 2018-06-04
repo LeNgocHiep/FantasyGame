@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 6c3d8d8026ea7cf449330f6f7390e048
+timeCreated: 1528115342
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: BUFFBONE_GLB_CHANNEL_LOC
+    100002: BUFFBONE_GLB_GROUND_LOC
+    100004: BUFFBONE_GLB_WEAPON_1
+    100006: C_BUFFBONE_GLB_CENTER_LOC
+    100008: C_BUFFBONE_GLB_CHEST_LOC
+    100010: C_BUFFBONE_GLB_HEAD_LOC
+    100012: C_BUFFBONE_GLB_LAYOUT_LOC
+    100014: C_BUFFBONE_GLB_OVERHEAD_LOC
+    100016: chest
+    100018: f_cloth
+    100020: head
+    100022: hip
+    100024: knife_01
+    100026: knife_02
+    100028: knife_03
+    100030: knife_04
+    100032: knife_05
+    100034: knife_06
+    100036: knife_07
+    100038: knife_08
+    100040: knife_09
+    100042: L_BUFFBONE_GLB_FOOT_LOC
+    100044: L_BUFFBONE_GLB_HAND_LOC
+    100046: l_cloak01
+    100048: l_cloak02
+    100050: l_cloak03
+    100052: l_cloak05
+    100054: l_cloak06
+    100056: l_cloak07
+    100058: l_cloth
+    100060: l_foot
+    100062: l_forearm
+    100064: l_hand
+    100066: l_index
+    100068: l_index_b
+    100070: l_knee
+    100072: l_middle
+    100074: l_middle_b
+    100076: l_pad
+    100078: L_PARENTING_HAND_LOC
+    100080: l_pinky
+    100082: l_pinky_b
+    100084: l_ring
+    100086: l_ring_b
+    100088: l_shoulder
+    100090: l_thigh
+    100092: l_thumb
+    100094: l_thumb_b
+    100096: l_toe
+    100098: l_uparm
+    100100: m_cloak02
+    100102: m_cloak03
+    100104: m_cloak04
+    100106: mouth
+    100108: neck
+    100110: R_BUFFBONE_GLB_FOOT_LOC
+    100112: R_BUFFBONE_GLB_HAND_LOC
+    100114: r_cloak01
+    100116: r_cloak02
+    100118: r_cloak03
+    100120: r_cloak05
+    100122: r_cloak06
+    100124: r_cloak08
+    100126: r_cloth
+    100128: r_foot
+    100130: r_forearm
+    100132: r_hand
+    100134: r_knee
+    100136: r_middle
+    100138: r_middle_b
+    100140: R_PARENTING_HAND_LOC
+    100142: r_shoulder
+    100144: r_thigh
+    100146: r_thumb
+    100148: r_thumb_b
+    100150: r_toe
+    100152: r_uparm
+    100154: root
+    100156: spine
+    100158: //RootNode
+    100160: transformTalon_Skin04
+    100162: weapon
+    400000: BUFFBONE_GLB_CHANNEL_LOC
+    400002: BUFFBONE_GLB_GROUND_LOC
+    400004: BUFFBONE_GLB_WEAPON_1
+    400006: C_BUFFBONE_GLB_CENTER_LOC
+    400008: C_BUFFBONE_GLB_CHEST_LOC
+    400010: C_BUFFBONE_GLB_HEAD_LOC
+    400012: C_BUFFBONE_GLB_LAYOUT_LOC
+    400014: C_BUFFBONE_GLB_OVERHEAD_LOC
+    400016: chest
+    400018: f_cloth
+    400020: head
+    400022: hip
+    400024: knife_01
+    400026: knife_02
+    400028: knife_03
+    400030: knife_04
+    400032: knife_05
+    400034: knife_06
+    400036: knife_07
+    400038: knife_08
+    400040: knife_09
+    400042: L_BUFFBONE_GLB_FOOT_LOC
+    400044: L_BUFFBONE_GLB_HAND_LOC
+    400046: l_cloak01
+    400048: l_cloak02
+    400050: l_cloak03
+    400052: l_cloak05
+    400054: l_cloak06
+    400056: l_cloak07
+    400058: l_cloth
+    400060: l_foot
+    400062: l_forearm
+    400064: l_hand
+    400066: l_index
+    400068: l_index_b
+    400070: l_knee
+    400072: l_middle
+    400074: l_middle_b
+    400076: l_pad
+    400078: L_PARENTING_HAND_LOC
+    400080: l_pinky
+    400082: l_pinky_b
+    400084: l_ring
+    400086: l_ring_b
+    400088: l_shoulder
+    400090: l_thigh
+    400092: l_thumb
+    400094: l_thumb_b
+    400096: l_toe
+    400098: l_uparm
+    400100: m_cloak02
+    400102: m_cloak03
+    400104: m_cloak04
+    400106: mouth
+    400108: neck
+    400110: R_BUFFBONE_GLB_FOOT_LOC
+    400112: R_BUFFBONE_GLB_HAND_LOC
+    400114: r_cloak01
+    400116: r_cloak02
+    400118: r_cloak03
+    400120: r_cloak05
+    400122: r_cloak06
+    400124: r_cloak08
+    400126: r_cloth
+    400128: r_foot
+    400130: r_forearm
+    400132: r_hand
+    400134: r_knee
+    400136: r_middle
+    400138: r_middle_b
+    400140: R_PARENTING_HAND_LOC
+    400142: r_shoulder
+    400144: r_thigh
+    400146: r_thumb
+    400148: r_thumb_b
+    400150: r_toe
+    400152: r_uparm
+    400154: root
+    400156: spine
+    400158: //RootNode
+    400160: transformTalon_Skin04
+    400162: weapon
+    2100000: lambert5
+    4300000: transformTalon_Skin04
+    7400000: Idle
+    7400002: Run
+    7400004: Attack
+    7400006: Die
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: transformTalon_Skin04
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert5
+    second: {fileID: 2100000, guid: cd2909c83626d624f96d2e05e42da181, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 233
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 237
+      lastFrame: 265
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 266
+      lastFrame: 297
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Die
+      takeName: Take 001
+      firstFrame: 298
+      lastFrame: 334
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
