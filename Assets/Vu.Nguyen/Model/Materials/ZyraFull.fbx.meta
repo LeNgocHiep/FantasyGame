@@ -1,0 +1,287 @@
+fileFormatVersion: 2
+guid: 2839afc45ec88ff4f9948ff9f2dd8b8b
+timeCreated: 1528042952
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: C_BuffBone_Glb_Overhead_Loc
+    100002: group
+    100004: pPlane1
+    100006: //RootNode
+    100008: ZyraFull:BUFFBONE_GLB_CHANNEL_LOC
+    100010: ZyraFull:BUFFBONE_GLB_GROUND_LOC
+    100012: ZyraFull:BUFFBONE_GLB_WEAPON_1
+    100014: ZyraFull:C_BUFFBONE_GLB_CENTER_LOC
+    100016: ZyraFull:C_BuffBone_Glb_Chest_Loc
+    100018: ZyraFull:C_BuffBone_Glb_Head_Loc
+    100020: ZyraFull:C_BUFFBONE_GLB_LAYOUT_LOC
+    100022: ZyraFull:C_BuffBone_Glb_Overhead_Loc
+    100024: ZyraFull:Chest
+    100026: ZyraFull:group
+    100028: ZyraFull:Hair_M_1
+    100030: ZyraFull:Hair_M_2
+    100032: ZyraFull:Hair_M_3
+    100034: ZyraFull:Hair_M_4
+    100036: ZyraFull:Hair_M_5
+    100038: ZyraFull:Hair_R_bang_1
+    100040: ZyraFull:Hair_R_bang_2
+    100042: ZyraFull:Hair_R_bang_3
+    100044: ZyraFull:Hair_R_bang_4
+    100046: ZyraFull:Head
+    100048: ZyraFull:Jaw
+    100050: ZyraFull:L_BuffBone_Glb_Foot_Loc
+    100052: ZyraFull:L_BuffBone_Glb_Hand_Loc
+    100054: ZyraFull:L_Foot
+    100056: ZyraFull:L_ForeArm
+    100058: ZyraFull:L_Hand
+    100060: ZyraFull:L_Hip
+    100062: ZyraFull:L_Index_1
+    100064: ZyraFull:L_Index_2
+    100066: ZyraFull:L_Knee
+    100068: ZyraFull:L_Middle_1
+    100070: ZyraFull:L_Middle_2
+    100072: ZyraFull:L_Parenting_Hand_Loc
+    100074: ZyraFull:L_Pinky_1
+    100076: ZyraFull:L_Pinky_2
+    100078: ZyraFull:L_Ring_1
+    100080: ZyraFull:L_Ring_2
+    100082: ZyraFull:L_Shoulder
+    100084: ZyraFull:L_Thumb_1
+    100086: ZyraFull:L_Thumb_2
+    100088: ZyraFull:L_Toe
+    100090: ZyraFull:L_Toe_z
+    100092: ZyraFull:L_UpArm
+    100094: ZyraFull:L_Vine_1
+    100096: ZyraFull:L_Vine_2
+    100098: ZyraFull:L_Vine_3
+    100100: ZyraFull:L_Vine_4
+    100102: ZyraFull:L_Vine_5
+    100104: ZyraFull:L_Vine_6
+    100106: ZyraFull:L_Vine_7
+    100108: ZyraFull:L_Vine_8
+    100110: ZyraFull:Neck
+    100112: ZyraFull:Pelvis
+    100114: ZyraFull:R_BuffBone_Glb_Foot_Loc
+    100116: ZyraFull:R_BuffBone_Glb_Hand_Loc
+    100118: ZyraFull:R_Foot
+    100120: ZyraFull:R_ForeArm
+    100122: ZyraFull:R_Hand
+    100124: ZyraFull:R_Hip
+    100126: ZyraFull:R_Index_1
+    100128: ZyraFull:R_Index_2
+    100130: ZyraFull:R_Knee
+    100132: ZyraFull:R_Middle_1
+    100134: ZyraFull:R_Middle_2
+    100136: ZyraFull:R_Parenting_Hand_Loc
+    100138: ZyraFull:R_Pinky_1
+    100140: ZyraFull:R_Pinky_2
+    100142: ZyraFull:R_Ring_1
+    100144: ZyraFull:R_Ring_2
+    100146: ZyraFull:R_Shoulder
+    100148: ZyraFull:R_Thumb_1
+    100150: ZyraFull:R_Thumb_2
+    100152: ZyraFull:R_Toe
+    100154: ZyraFull:R_Toe_z
+    100156: ZyraFull:R_UpArm
+    100158: ZyraFull:R_Vine_1
+    100160: ZyraFull:R_Vine_2
+    100162: ZyraFull:R_Vine_3
+    100164: ZyraFull:R_Vine_4
+    100166: ZyraFull:R_Vine_5
+    100168: ZyraFull:R_Vine_6
+    100170: ZyraFull:R_Vine_7
+    100172: ZyraFull:R_Vine_8
+    100174: ZyraFull:Root
+    100176: ZyraFull:Spine
+    100178: ZyraFull:transformZyra
+    400000: C_BuffBone_Glb_Overhead_Loc
+    400002: group
+    400004: pPlane1
+    400006: //RootNode
+    400008: ZyraFull:BUFFBONE_GLB_CHANNEL_LOC
+    400010: ZyraFull:BUFFBONE_GLB_GROUND_LOC
+    400012: ZyraFull:BUFFBONE_GLB_WEAPON_1
+    400014: ZyraFull:C_BUFFBONE_GLB_CENTER_LOC
+    400016: ZyraFull:C_BuffBone_Glb_Chest_Loc
+    400018: ZyraFull:C_BuffBone_Glb_Head_Loc
+    400020: ZyraFull:C_BUFFBONE_GLB_LAYOUT_LOC
+    400022: ZyraFull:C_BuffBone_Glb_Overhead_Loc
+    400024: ZyraFull:Chest
+    400026: ZyraFull:group
+    400028: ZyraFull:Hair_M_1
+    400030: ZyraFull:Hair_M_2
+    400032: ZyraFull:Hair_M_3
+    400034: ZyraFull:Hair_M_4
+    400036: ZyraFull:Hair_M_5
+    400038: ZyraFull:Hair_R_bang_1
+    400040: ZyraFull:Hair_R_bang_2
+    400042: ZyraFull:Hair_R_bang_3
+    400044: ZyraFull:Hair_R_bang_4
+    400046: ZyraFull:Head
+    400048: ZyraFull:Jaw
+    400050: ZyraFull:L_BuffBone_Glb_Foot_Loc
+    400052: ZyraFull:L_BuffBone_Glb_Hand_Loc
+    400054: ZyraFull:L_Foot
+    400056: ZyraFull:L_ForeArm
+    400058: ZyraFull:L_Hand
+    400060: ZyraFull:L_Hip
+    400062: ZyraFull:L_Index_1
+    400064: ZyraFull:L_Index_2
+    400066: ZyraFull:L_Knee
+    400068: ZyraFull:L_Middle_1
+    400070: ZyraFull:L_Middle_2
+    400072: ZyraFull:L_Parenting_Hand_Loc
+    400074: ZyraFull:L_Pinky_1
+    400076: ZyraFull:L_Pinky_2
+    400078: ZyraFull:L_Ring_1
+    400080: ZyraFull:L_Ring_2
+    400082: ZyraFull:L_Shoulder
+    400084: ZyraFull:L_Thumb_1
+    400086: ZyraFull:L_Thumb_2
+    400088: ZyraFull:L_Toe
+    400090: ZyraFull:L_Toe_z
+    400092: ZyraFull:L_UpArm
+    400094: ZyraFull:L_Vine_1
+    400096: ZyraFull:L_Vine_2
+    400098: ZyraFull:L_Vine_3
+    400100: ZyraFull:L_Vine_4
+    400102: ZyraFull:L_Vine_5
+    400104: ZyraFull:L_Vine_6
+    400106: ZyraFull:L_Vine_7
+    400108: ZyraFull:L_Vine_8
+    400110: ZyraFull:Neck
+    400112: ZyraFull:Pelvis
+    400114: ZyraFull:R_BuffBone_Glb_Foot_Loc
+    400116: ZyraFull:R_BuffBone_Glb_Hand_Loc
+    400118: ZyraFull:R_Foot
+    400120: ZyraFull:R_ForeArm
+    400122: ZyraFull:R_Hand
+    400124: ZyraFull:R_Hip
+    400126: ZyraFull:R_Index_1
+    400128: ZyraFull:R_Index_2
+    400130: ZyraFull:R_Knee
+    400132: ZyraFull:R_Middle_1
+    400134: ZyraFull:R_Middle_2
+    400136: ZyraFull:R_Parenting_Hand_Loc
+    400138: ZyraFull:R_Pinky_1
+    400140: ZyraFull:R_Pinky_2
+    400142: ZyraFull:R_Ring_1
+    400144: ZyraFull:R_Ring_2
+    400146: ZyraFull:R_Shoulder
+    400148: ZyraFull:R_Thumb_1
+    400150: ZyraFull:R_Thumb_2
+    400152: ZyraFull:R_Toe
+    400154: ZyraFull:R_Toe_z
+    400156: ZyraFull:R_UpArm
+    400158: ZyraFull:R_Vine_1
+    400160: ZyraFull:R_Vine_2
+    400162: ZyraFull:R_Vine_3
+    400164: ZyraFull:R_Vine_4
+    400166: ZyraFull:R_Vine_5
+    400168: ZyraFull:R_Vine_6
+    400170: ZyraFull:R_Vine_7
+    400172: ZyraFull:R_Vine_8
+    400174: ZyraFull:Root
+    400176: ZyraFull:Spine
+    400178: ZyraFull:transformZyra
+    2100000: lambert1
+    2100002: ZyraFull_lambert2
+    2300000: pPlane1
+    3300000: pPlane1
+    4300000: pPlane1
+    4300002: ZyraFull:transformZyra
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: ZyraFull:transformZyra
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ZyraFull_lambert2
+    second: {fileID: 2100000, guid: 7389af8b41c6a4b42b0a65a33e2503e3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: c71b6bcac26629340b14d30d5f2402b5, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 2
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
