@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/WorldMap1.unity
+- path: Assets/Vu.Nguyen/Scenes/preGame.unity
   isLoaded: 1
   isActive: 1
