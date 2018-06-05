@@ -63,7 +63,8 @@ public class CameraController : MonoBehaviour {
             return;
         if ((vitribandau.x + ((click.x - drag.x) * scrollSpeed) < 483f) && (vitribandau.x + ((click.x - drag.x) * scrollSpeed) > -435f))
             transform.position = new Vector3(vitribandau.x + ((click.x - drag.x) * scrollSpeed),
-                -58, -500);
+                -107, -411);
+        //Hàng trước
     }
 }
     
