@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Vu.Nguyen/Scenes/preGame.unity
+=======
+- path: Assets/Scenes/WorldMap1.unity
+>>>>>>> 71612d9aaa31e227d3b044a66fe1cd61c2817464
   isLoaded: 1
   isActive: 1
