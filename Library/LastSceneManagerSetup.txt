@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Game.unity
+=======
+- path: Assets/Scenes/Round1.unity
+>>>>>>> 886a80cfb87e0e61e9f1b03674e72cc8ec16985d
   isLoaded: 1
   isActive: 1
