@@ -7,7 +7,6 @@ public class ChonTuongTrongDanhSach : MonoBehaviour {
 
     public Transform transListTuong;
     public Transform[] listOTuong;
-    public Sprite[] avatarTuong;
     public GameObject maskBtnStartGame;
     int[] danhdauDaCo= new int[] { -1,-1,-1,-1,-1};
 
