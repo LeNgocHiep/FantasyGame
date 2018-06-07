@@ -50,8 +50,11 @@ public class CameraController : MonoBehaviour {
             if (hit.collider == null)
                 txt.text = "null";
             else
+            {
                 txt.text = hit.collider.name;
-            click = Vector3.zero;
+                UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+            }
+                click = Vector3.zero;
         }
         //khi không nhấn nhưng thời gian nhấn giữ lâu
         if (flagNhan == false && timeDetectTouch < 0 && click != Vector3.zero)
@@ -63,7 +66,7 @@ public class CameraController : MonoBehaviour {
             return;
         if ((vitribandau.x + ((click.x - drag.x) * scrollSpeed) < 483f) && (vitribandau.x + ((click.x - drag.x) * scrollSpeed) > -435f))
             transform.position = new Vector3(vitribandau.x + ((click.x - drag.x) * scrollSpeed),
-                -107, -411);
+                -58, -500);
         //Hàng trước
     }
 }
