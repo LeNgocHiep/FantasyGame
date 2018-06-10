@@ -97,6 +97,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Vu.Nguyen\Scripts\CameraController.cs" />
     <Compile Include="Assets\Vu.Nguyen\Scripts\ChonTuongTrongDanhSach.cs" />
+    <Compile Include="Assets\Vu.Nguyen\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Vu.Nguyen\Scripts\GameController.cs" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
