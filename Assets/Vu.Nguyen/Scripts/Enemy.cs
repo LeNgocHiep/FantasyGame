@@ -82,8 +82,10 @@ public class Enemy : MonoBehaviour {
         anim.Play();
     }
 
-    public void attack()
+    public void attack(Object ObjHero)
     {
+        Heros heros = (Heros)ObjHero;
+        heros.curHealth -= this.Dam;
         if (this.name.Equals("DragonFire"))
             flagAttack = true;
         else

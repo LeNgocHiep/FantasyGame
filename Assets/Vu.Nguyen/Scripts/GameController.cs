@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
     public Enemy[] lstenemey;
-
+    public Heros[] lstHeros;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,14 +16,19 @@ public class GameController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("Hiep");
 		if (Input.GetKeyDown(KeyCode.A))
         {
-            lstenemey[i].attack();
+
+            lstenemey[Random.Range(0, 4)].attack(lstHeros[ Random.Range(0,4)]);
             i++;
             if (i >= lstenemey.Length)
                 i = 0;
         }
-
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            lstHeros[Random.Range(0, 4)].OnAttack(lstenemey[Random.Range(0, 4)]);
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             lstenemey[i].playerAttack(20);
