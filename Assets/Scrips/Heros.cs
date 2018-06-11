@@ -9,7 +9,8 @@ public class Heros : MonoBehaviour
     public float maxHealth;
     public float curHealth;
     public GameObject health_bar;
-
+    public bool flagDanhRoi = false;
+    public bool flagDie = false;
     public int dame;
     public int vitri; //vị trí đứng trong team 
     //public int[] location_attack; //vi tri quan dich Hero nay tan cong
@@ -39,9 +40,16 @@ public class Heros : MonoBehaviour
             this.stateTime -= Time.deltaTime;
             if (stateTime <= 0)
             {
-                if(state.Equals("Die"))
+                if (state.Equals("Attack"))
+                {
+                    flagDanhRoi = true;
+                }
+                if (state.Equals("Die"))
+                {
+                    flagDie = true;
                     Destroy(this.gameObject, 2.3f);
-                this.switchAnimation("Idle");
+                }
+                    this.switchAnimation("Idle");
                 this.transform.position = default_location;
                 Debug.Log("Auto Hiep:" );
             }

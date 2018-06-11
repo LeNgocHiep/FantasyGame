@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour {
     public bool flagDie;
     Image maucon, mauhet;
     GameObject Healthbar;
+    public bool flagDanhRoi = false;
 	// Use this for initialization
 	void Start () {
         tenEnemy = this.name;
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour {
         Healthbar = transform.GetChild(3).gameObject;
         maucon = Healthbar.transform.GetChild(1).GetComponent<Image>();
         mauhet = Healthbar.transform.GetChild(0).GetComponent<Image>();
-    }
+    }  
 
     public float timeAttack;
     public float moveSpeed;
@@ -62,6 +63,7 @@ public class Enemy : MonoBehaviour {
                 transform.position = vitriCu;
                 flagAttack = false;
                 timeAttack = 3;
+                flagDanhRoi = true;
             }
         }
 
