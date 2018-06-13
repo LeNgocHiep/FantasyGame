@@ -35,7 +35,6 @@ public class Heros : MonoBehaviour
     {
         if (!state.Equals("Idle") && stateTime > 0)
         {
-            Debug.Log("State Time : " + this.stateTime);
             this.stateTime -= Time.deltaTime;
 
             if (stateTime <= 0)
@@ -47,12 +46,13 @@ public class Heros : MonoBehaviour
                 if (state.Equals("Die"))
                 {
 
-                    flagDie = true;
+                    
                     this.gameObject.SetActive(false); //Destroy(this.gameObject, 0f);//
+                    
+                    Debug.Log("HERO ----------DIE");
                 }
                 this.switchAnimation("Idle");
                 this.transform.position = default_location;
-                Debug.Log("Auto Hiep:");
             }
         }
         else
@@ -68,6 +68,7 @@ public class Heros : MonoBehaviour
     {
         if (curHealth <= 0)
         {
+            flagDie = true;
             this.switchAnimation("Die");
         }
     }
@@ -104,7 +105,7 @@ public class Heros : MonoBehaviour
     {
         Enemy enemy = (Enemy)obj;
         //this.transform.position = enemy.transform.position;
-        this.transform.position = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z - 70);
+        this.transform.position = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z - 100);
         enemy.playerAttack(this.dame);
         this.switchAnimation("Attack");
         //this.BeingDamage(1);

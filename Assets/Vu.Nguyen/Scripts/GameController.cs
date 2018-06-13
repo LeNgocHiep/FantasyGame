@@ -116,60 +116,74 @@ public class GameController : MonoBehaviour
     bool flagTurn = true; //True : Hero danh --- False : Enemy danh
     void TurnActive(Enemy[] arrEnemy, Heros[] arrHeros)
     {
-        Debug.Log("FlagTurn:" + flagTurn);
-        Debug.Log("ENEMYYYYYYYYYYYYYYYYYYYYY:" + iEnemy);
+        
         if (flagTurn)
         {
             if (iHero == 0)
             {
-                if (iEnemy == 0)
-                {
-                    iEnemy = EnemyDuocChon(arrEnemy);
-                }
-                Debug.Log("Lượt Hero = " + iHero);
+                //if (iEnemy == 0)
+                //{
+                //    iEnemy = EnemyDuocChon(arrEnemy);
+                //}
+                iHero = HeroDuocChon(arrHeros);
+                if (arrHeros[iHero].flagDie)
+                    iHero = HeroDuocChon(arrHeros);
                 HeroTanCong(arrHeros[iHero], iHero, arrEnemy);
-
-                if (iHero == ViTriHeroSauCung(arrHeros))
-                    ResetFlagDanhRoiHeros(arrHeros);
+                //if (iHero == ViTriHeroSauCung(arrHeros))
+                // ResetFlagDanhRoiHeros(arrHeros);
+                ResetFlagDanhRoiEnemy(arrEnemy);
                 flagTurn = false;
+                Debug.Log("FlagTurn:" + flagTurn);
+
             }
             else
             {
 
                 if (arrEnemy[iEnemy].flagDanhRoi)
                 {
-
-                    if (iEnemy == 0)
-                    {
-                        iEnemy = EnemyDuocChon(arrEnemy);
-                    }
+                    
+                    //if (iEnemy == 0)
+                    //{
+                    //    iEnemy = EnemyDuocChon(arrEnemy);
+                    //}
                     iHero = HeroDuocChon(arrHeros);
-                    Debug.Log("Lượt Hero >0");
+                    if (arrHeros[iHero].flagDie)
+                    {
+                        Debug.Log("HERO DIE -----------------");
+                        return;
+                       
+                    }
                     HeroTanCong(arrHeros[iHero], iHero, arrEnemy);
 
-                    if (iHero == ViTriHeroSauCung(arrHeros))
-                        ResetFlagDanhRoiHeros(arrHeros);
+                    //if (iHero == ViTriHeroSauCung(arrHeros))
+                    ResetFlagDanhRoiEnemy(arrEnemy);
                     flagTurn = false;
+                    Debug.Log("FlagTurn:" + flagTurn);
                 }
             }
+            
         }
         else
         {
             if (arrHeros[iHero].flagDanhRoi)
             {
                 iEnemy = EnemyDuocChon(arrEnemy);
+                if (arrEnemy[iEnemy].flagDie)
+                    iEnemy = EnemyDuocChon(arrEnemy);
                 if (iHero == 0)
                 {
                     Debug.Log("Reset Vong danh -> Round2:" + iEnemy);
                     iHero = HeroDuocChon(arrHeros);
                 }
-                Debug.Log("Lượt Enemy= " + iEnemy);
                 EnemyTanCong(arrEnemy[iEnemy], iEnemy, arrHeros);
 
-                if (iEnemy == ViTriEnemySauCung(arrEnemy))
-                    ResetFlagDanhRoiEnemy(arrEnemy);
+                //if (iEnemy == ViTriEnemySauCung(arrEnemy))
+                    
                 flagTurn = true;
+                Debug.Log("FlagTurn:" + flagTurn);
+                ResetFlagDanhRoiHeros(arrHeros);
             }
+            
 
         }
     }
@@ -230,7 +244,7 @@ public class GameController : MonoBehaviour
         int vt = -1;
         for (int i = 0; i < arrHeros.Length; i++)
         {
-            if (!arrHeros[i].flagDie && !arrHeros[i].flagDanhRoi)
+            if (!arrHeros[i].flagDie)
             {
                 vt = i;
             }
@@ -242,16 +256,32 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < arrEnemy.Length; i++)
         {
+            if (!arrEnemy[i].flagDanhRoi && !arrEnemy[i].flagDie)
+            {
+                return;
+            }
+        }
+        Debug.Log("Tat cac cac ENEMY danh xong");
+        for (int i = 0; i < arrEnemy.Length; i++)
+        {
             arrEnemy[i].flagDanhRoi = false;
         }
+        Debug.Log("Reset tranng thai ENEMY");
     }
     //Reset trạng thái flagDanhRoi cho Heros
     void ResetFlagDanhRoiHeros(Heros[] arrHeros)
     {
         for (int i = 0; i < arrHeros.Length; i++)
         {
+            if (!arrHeros[i].flagDanhRoi && !arrHeros[i].flagDie)
+                return;
+        }
+        Debug.Log("Tat cac cac HERO danh xong");
+        for (int i = 0; i < arrHeros.Length; i++)
+        {
             arrHeros[i].flagDanhRoi = false;
         }
+        Debug.Log("Reset tranng thai HERO");
     }
     void HeroTanCong(Heros heros, int stt, Enemy[] arrEnemy) //stt : là vị trí của hero trong mảng lstHero
     {
@@ -264,6 +294,7 @@ public class GameController : MonoBehaviour
             {
                 if (!arrEnemy[i].flagDie)
                 {
+                    Debug.Log("Lượt Hero ="+stt+" Danh Enemy"+ i);
                     heros.OnAttack(arrEnemy[i]);
                     break;
                 }
@@ -271,6 +302,7 @@ public class GameController : MonoBehaviour
         }
         else  //Mục tiêu còn sống
         {
+            Debug.Log("Lượt Hero =" + stt + " Danh Enemy" + stt);
             heros.OnAttack(arrEnemy[stt]);
         }
     }
@@ -285,6 +317,7 @@ public class GameController : MonoBehaviour
             {
                 if (!arrHeros[i].flagDie)
                 {
+                    Debug.Log("Lượt Enemy =" + stt + " Danh Hero" + i);
                     enemy.attack(arrHeros[i]);
                     break;
                 }
@@ -292,6 +325,7 @@ public class GameController : MonoBehaviour
         }
         else  //Mục tiêu còn sống
         {
+            Debug.Log("Lượt Enemy =" + stt + " Danh Hero" + stt);
             enemy.attack(arrHeros[stt]);
         }
     }
