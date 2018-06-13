@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/New Scene.unity
+=======
+- path: Assets/Scenes/Match.unity
+>>>>>>> 7ee1d6bede983c1b730267ec24db673bd2d53791
   isLoaded: 1
   isActive: 1

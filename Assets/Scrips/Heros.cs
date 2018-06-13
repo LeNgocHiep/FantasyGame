@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Heros : MonoBehaviour
 {
-
+    public bool flagActtackComplete = false;
     public float maxHealth;
     public float curHealth;
     public GameObject health_bar;
@@ -16,7 +16,6 @@ public class Heros : MonoBehaviour
     //public int[] location_attack; //vi tri quan dich Hero nay tan cong
     Animation anim;
     Vector3 default_location;
-    Rigidbody rigidbody;
     float enemySpeed = 30f;
     string state = "Idle";
     float stateTime = 0;  //time animation 
@@ -28,7 +27,6 @@ public class Heros : MonoBehaviour
         InvokeRepeating("decreaseHealth", 1f, 1f);
 
         anim = GetComponent<Animation>();
-        rigidbody = GetComponent<Rigidbody>();
         default_location = this.transform.position;
     }
     float speed = 300f;
@@ -38,6 +36,7 @@ public class Heros : MonoBehaviour
         if (!state.Equals("Idle") && stateTime > 0)
         {
             this.stateTime -= Time.deltaTime;
+
             if (stateTime <= 0)
             {
                 if (state.Equals("Attack"))
@@ -46,15 +45,20 @@ public class Heros : MonoBehaviour
                 }
                 if (state.Equals("Die"))
                 {
-                    flagDie = true;
-                    Destroy(this.gameObject, 2.3f);
+
+                    
+                    this.gameObject.SetActive(false); //Destroy(this.gameObject, 0f);//
+                    
+                    Debug.Log("HERO ----------DIE");
                 }
-                    this.switchAnimation("Idle");
+                this.switchAnimation("Idle");
                 this.transform.position = default_location;
-                Debug.Log("Auto Hiep:" );
             }
         }
-        switchAnimation(state);
+        else
+        {
+            switchAnimation(state);
+        }
         this.checkHeroDie();
         //this.OnStay(state);
         //this.OnMove(new Vector3(transform.position.x,transform.position.y, transform.position.z + speed * Time.deltaTime));
@@ -64,6 +68,7 @@ public class Heros : MonoBehaviour
     {
         if (curHealth <= 0)
         {
+            flagDie = true;
             this.switchAnimation("Die");
         }
     }
@@ -100,7 +105,7 @@ public class Heros : MonoBehaviour
     {
         Enemy enemy = (Enemy)obj;
         //this.transform.position = enemy.transform.position;
-        this.transform.position = new Vector3(enemy.transform.position.x, enemy.transform.position.y + 30, enemy.transform.position.z - 50);
+        this.transform.position = new Vector3(enemy.transform.position.x, transform.position.y, enemy.transform.position.z - 100);
         enemy.playerAttack(this.dame);
         this.switchAnimation("Attack");
         //this.BeingDamage(1);
@@ -118,10 +123,16 @@ public class Heros : MonoBehaviour
     }
     void switchAnimation(string state)
     {
-        if(this.state!= state)
-            this.stateTime = anim.clip.length;
-        this.state = state;
-        anim.clip = anim.GetClip(state);
+        if (!this.state.Equals(state))
+        {
+            this.state = state;
+            anim.clip = anim.GetClip(state);
+            this.stateTime = anim[state].length; //anim.clip.length; 
+        }
+        else
+        {
+            anim.clip = anim.GetClip(state);
+        }
         anim.Play();      
     }
     void decreaseHealth()
