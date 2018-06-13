@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HerosHealthBar : MonoBehaviour {
+public class CharactersHealthBar : MonoBehaviour {
     public  float max_Health = 100f;
     public  float cur_Health = 0f;
     public GameObject health_bar;
 	// Use this for initialization
 	void Start () {
         cur_Health = max_Health;
-        InvokeRepeating("decreaseHealth",1f,1f); 
-        
+        InvokeRepeating("decreaseHealth",1f,1f);       
 	}
 	
 	// Update is called once per frame
