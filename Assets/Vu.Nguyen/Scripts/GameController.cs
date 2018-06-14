@@ -4,89 +4,53 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public Character[] lstenemey1;
+    //<<<<<<< HEAD
+
+    //    public Heros[] allHeros;
+
+    //    public Enemy[] lstenemey;
+    //    private Heros[] lstHeros;
+    //    public GameObject[] vitri;
+    //    public Transform transHerro;
+
+    //    private void Start()
+    //    {
+    //        lstHeros = new Heros[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo.Length];
+    //        for (int i = 0; i < 5;i++)
+    //        {
+    //            lstHeros[i] = Instantiate(allHeros[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo[i]],transHerro);
+    //            lstHeros[i].transform.localPosition = vitri[i].transform.localPosition;
+    //            lstHeros[i].vitri = i;
+    //        }
+    //    }
+
+    //    private void Update()
+    //    {
+    //        return;
+    //        TurnActive(lstenemey, lstHeros);
+    //=======
+
+
+        public GameObject[] vitri;
+        public Transform transHerro;
+    public Character[] allHerro;
     public Character[] lstenemey;
-    public Character[] lstCharacters;
-    // Use this for initialization
-    ////void Start()
-    ////{
+    public Character[] lstHero;
 
-    ////}
-
-    ////int iHerro = 0;
-    ////int iEnemy = 0;
-
-    ////bool flagQuanDanh = true; //true: Hiệp đánh, false: Vũ đánh
-    ////int luotHerro = 0;
-    ////int luotEnemy = 0;
-    ////// Update is called once per frame
-    ////void Update()
-    ////{
-
-    ////    if (Input.GetKeyDown(KeyCode.Escape))
-    ////    {
-    ////        lstCharacters[iHerro].OnAttack(lstenemey[iHerro]);
-    ////        flagQuanDanh = false;
-    ////        iHerro++;
-    ////    }
-
-    ////    if (!flagQuanDanh)
-    ////    {
-    ////        if (iEnemy == 5)
-    ////        {
-    ////            iEnemy = 0;
-    ////        }
-    ////        if (lstCharacters[iEnemy].flagDanhRoi)
-    ////        {
-    ////            // if (lstCharacters[iEnemy].flagDie)
-
-    ////            lstenemey[iEnemy].attack(lstCharacters[iEnemy]);
-    ////            flagQuanDanh = true;
-    ////            iEnemy++;
-    ////        }
-    ////    }
-
-
-    ////    if (iHerro == 0)
-    ////        return;
-
-    ////    if (flagQuanDanh && lstenemey[iHerro - 1].flagDanhRoi)
-    ////    {
-    ////        if (iHerro == 5)
-    ////        {
-    ////            iHerro = 0;
-    ////            for (int i = 0; i < lstenemey.Length; i++)
-    ////            {
-    ////                lstenemey[i].flagDanhRoi = false;
-    ////                lstCharacters[i].flagDanhRoi = false;
-    ////            }
-    ////        }
-    ////        lstCharacters[iHerro].OnAttack(lstenemey[iHerro]);
-    ////        flagQuanDanh = false;
-    ////        iHerro++;
-    ////    }
-
-    ////}
-
-    ////private int nhanVatChuaDie(Enemy[] arr)
-    ////{
-    ////    for (int i = 0; i < arr.Length; i++)
-    ////        if (!arr[i].flagDie)
-    ////            return i;
-    ////    return -1;
-    ////}
-
-    ////private int nhanVatChuaDie(Character[] arr)
-    ////{
-    ////    for (int i = 0; i < arr.Length; i++)
-    ////        if (!arr[i].flagDie)
-    ////            return i;
-    ////    return -1;
-    ////}
+    private void Start()
+    {
+        lstHero = new Character[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo.Length];
+        for (int i = 0; i < 5; i++)
+        {
+            lstHero[i] = Instantiate(allHerro[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo[i]], transHerro);
+            lstHero[i].transform.localPosition = vitri[i].transform.localPosition;
+           // lstHero[i].v = i;
+        }
+    }
 
     private void Update()
     {
-        TurnActive(lstenemey, lstCharacters);
+        TurnActive(lstenemey, lstHero);
     }
 
     bool CheckCharactersWin()
@@ -102,9 +66,9 @@ public class GameController : MonoBehaviour
     }
     bool CheckEnemyWin()
     {
-        for (int i = 0; i < lstCharacters.Length; i++)
+        for (int i = 0; i < lstHero.Length; i++)
         {
-            if (!lstCharacters[i].flagDie)
+            if (!lstHero[i].flagDie)
             {
                 return false;
             }

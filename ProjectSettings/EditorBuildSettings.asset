@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Vu.Nguyen/Scenes/preGame.unity
     guid: 4467d46cd3a3b2a409f86df1686c24bc
+  - enabled: 1
+    path: Assets/Scenes/Match.unity
+    guid: 7c29fa20ea186fb45b5b9210080e00c5
   m_configObjects: {}

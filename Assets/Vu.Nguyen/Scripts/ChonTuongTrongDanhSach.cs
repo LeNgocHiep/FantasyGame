@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ChonTuongTrongDanhSach : MonoBehaviour {
-
+    public static ChonTuongTrongDanhSach sceneChonHero;
     public Transform transListTuong;
     public Transform[] listOTuong;
     public GameObject maskBtnStartGame;
-    int[] danhdauDaCo= new int[] { -1,-1,-1,-1,-1};
+    public int[] danhdauDaCo= new int[] { -1,-1,-1,-1,-1};
+
+    private void Awake()
+    {
+        sceneChonHero = this;
+    }
 
     public void clickChonTuong(int indexTuong)
     {
@@ -69,6 +74,6 @@ public class ChonTuongTrongDanhSach : MonoBehaviour {
         if (maskBtnStartGame.activeSelf)
             return;
         else
-            Debug.Log("Vào game");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(3);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Character: MonoBehaviour
+public class Character : MonoBehaviour
 {
     public bool HeroTrue; //phân biệt Hero và Enemy - Hero = true
     public float maxHealth;
@@ -11,9 +11,9 @@ public class Character: MonoBehaviour
     public int dame;
     public int[] positionAttack;            //vị trí enemy bị tấn công
     public bool flagCoDinh;          //chỉ đánh mục tiêu được chỉ định  - mục tiêu bị đánh đã chết => không đánh ai khác;
-    public bool flagDanhMucTieuNgauNhien;       //Đánh mục tiêu ngẫu nhiên
-    public bool flagDanhMucTieuThapMauNhat;     //Đánh mục tiêu thấp máu nhất
-    public bool flagDanhMucTieuNhieuMauNhat;    //Đánh mục tiêu nhiều máu nhất
+    public bool flagNgauNhien;       //Đánh mục tiêu ngẫu nhiên
+    public bool flagThapMauNhat;     //Đánh mục tiêu thấp máu nhất
+    public bool flagNhieuMauNhat;    //Đánh mục tiêu nhiều máu nhất
     public GameObject health_bar;
     public bool flagDanhRoi = false;
     public bool flagDie = false;
@@ -45,9 +45,9 @@ public class Character: MonoBehaviour
                 if (state.Equals("Die"))
                 {
 
-                    
+
                     this.gameObject.SetActive(false); //Destroy(this.gameObject, 0f);//
-                    
+
                     Debug.Log("Character ----------DIE");
                 }
                 this.switchAnimation("Idle");
@@ -103,7 +103,7 @@ public class Character: MonoBehaviour
                     lst.Add(positionAttack[i]);
                 }
             }
-            if (lst.Count>0) //có mục tiêu còn sống
+            if (lst.Count > 0) //có mục tiêu còn sống
             {
                 //đánh mục tiêu còn sống
                 float xnew = (arrEnemy[0].transform.position.x + arrEnemy[1].transform.position.x) / 2;
@@ -117,7 +117,7 @@ public class Character: MonoBehaviour
             }
         }
     }
-    private void DanhMucTieuNgauNhien(Character hero, Character[] arrEnemy)
+    private void DanhMucTieuNgauNhien(Character hero, Character[] arrEnemy) //đánh mục tiêu được chỉ định, sau đó đánh ngẫu nhiên
     {
         if (positionAttack.Length == 1) //đánh đơn mục tiêu
         {
@@ -125,45 +125,39 @@ public class Character: MonoBehaviour
             {
                 //Nếu mục tiêu còn sống
                 int sflagHvsE = HeroTrue ? -100 : 100;
-                this.transform.position = new Vector3(arrEnemy[0].transform.position.x, transform.position.y, arrEnemy[0].transform.position.z + sflagHvsE);//di chuyển nhân vật
+                this.transform.position = new Vector3(arrEnemy[positionAttack[0]].transform.position.x, transform.position.y, arrEnemy[positionAttack[0]].transform.position.z + sflagHvsE);//di chuyển nhân vật
                 XuLyDame(hero, arrEnemy[positionAttack[0]]);
             }
             else //mục tiêu đã chết - chọn ngẫu nhiên 1 enemy để đánh
             {
-                List<int> lst = new List<int>();
-                for (int i = 0; i < arrEnemy.Length; i++)
-                {
-                    if (!arrEnemy[i].flagDie)
-                    {
-                        //tìm được mục tiêu còn sống mới 
-                        lst.Add(i);
-                    }
-                }
+                List<int> lst = TimViTriDSMucTieuConSong(arrEnemy);
                 if (lst.Count >= 1)
-                {                 
+                {
                     //Nếu mục tiêu còn sống
                     int sflagHvsE = HeroTrue ? -100 : 100;
-                    this.transform.position = new Vector3(arrEnemy[0].transform.position.x, transform.position.y, arrEnemy[0].transform.position.z + sflagHvsE);//di chuyển nhân vật
-                    XuLyDame(hero, arrEnemy[Random.Range(0, lst.Count - 1)]);
+                    int rd = Random.Range(0, lst.Count - 1);
+                    Debug.Log("RANDOM----------------" + rd);
+                    this.transform.position = new Vector3(arrEnemy[lst[rd]].transform.position.x, transform.position.y, arrEnemy[lst[rd]].transform.position.z + sflagHvsE);//di chuyển nhân vật
+                    XuLyDame(hero, arrEnemy[lst[rd]]);
                 }
                 else //lst.Count = 0  => Tất cả mục tiêu đều chết
                 {
                     return;
                 }
-                
+
             }
         }
         else //đánh đa mục tiêu  ======================CHƯA VIẾT XONG ==================================
         {
-            bool kt = false; //cờ kiểm tra còn enemy nào sống
+            List<int> lstElife = new List<int>(); //Danh  sách enemy mặc định đưa  vào còn sống
             for (int i = 0; i < positionAttack.Length; i++)
             {
                 if (!arrEnemy[positionAttack[i]].flagDie) //Đánh những mục tiêu còn sống
                 {
-                    kt = true;
+                    lstElife.Add(positionAttack[i]);
                 }
             }
-            if (kt) //có mục tiêu còn sống
+            if (lstElife.Count == positionAttack.Length) //kt = true => tất cả mục tiêu đều sống
             {
                 //đánh mục tiêu còn sống
                 float xnew = (arrEnemy[0].transform.position.x + arrEnemy[1].transform.position.x) / 2;
@@ -175,15 +169,92 @@ public class Character: MonoBehaviour
                     XuLyDame(hero, arrEnemy[positionAttack[i]]);
                 }
             }
+            else //có enemy đã chết - xử lý thay thế bằng enemy khác
+            {
+                if (lstElife.Count == 0) //toàn bộ enemy đã chết
+                {
+                    //chọn ra các vị trí mới 
+                    List<int> lst = TimViTriDSMucTieuConSong(arrEnemy);  //danh sách enemy còn sống trong mảng arrEnemy
+                    if (lst.Count <= positionAttack.Length && lst.Count > 0)
+                    {
+                        float xnew = (arrEnemy[0].transform.position.x + arrEnemy[1].transform.position.x) / 2;
+                        int mflagHvsE = HeroTrue ? -300 : 300;
+                        float znew = arrEnemy[0].transform.position.z + mflagHvsE;
+                        this.transform.position = new Vector3(xnew, transform.position.y, znew); // di chuyển nhân vật
+                        for (int i = 0; i < lst.Count; i++)
+                        {
+                            XuLyDame(hero, arrEnemy[lst[i]]);
+                        }
+                    }
+                }
+                else
+                {
+                    // đánh những enemy đưa vào mặc định còn sống
+                    float xnew = (arrEnemy[0].transform.position.x + arrEnemy[1].transform.position.x) / 2;
+                    int mflagHvsE = HeroTrue ? -300 : 300;
+                    float znew = arrEnemy[0].transform.position.z + mflagHvsE;
+                    this.transform.position = new Vector3(xnew, transform.position.y, znew); // di chuyển nhân vật
+                    for (int i = 0; i < lstElife.Count; i++)
+                    {
+                        XuLyDame(hero, arrEnemy[lstElife[i]]);
+                    }
+                    //đánh thêm số lượng mục tiêu còn thiếu
+                    int t = positionAttack.Length - lstElife.Count;
+                    List<int> lstEnemyConSongMaChuaBiDanh=new List<int>(); ///XEM LAI
+                    for (int i = 0; i < arrEnemy.Length; i++)
+                    {
+                        for (int j = 0; j < lstElife.Count; j++)
+                        {
+                            if (!arrEnemy[i].flagDie && !KTMotSoCoTrongMang(i, lstElife))
+                            {
+                                lstEnemyConSongMaChuaBiDanh.Add(i);
+                                t--;
+                            }
+                        }
+                        if (t == 0)
+                        {
+                            for (int k = 0; k < lstEnemyConSongMaChuaBiDanh.Count; k++)
+                            {
+                                XuLyDame(hero, arrEnemy[lstEnemyConSongMaChuaBiDanh[k]]);
+                            }
+                            break;
+                        }                         
+                    }
+                }
+            }
         }
+    }
+    bool KTMotSoCoTrongMang(int a, List<int> lst)
+    {
+        for (int i = 0; i < lst.Count; i++)
+        {
+            if (lst[i] == a)
+                return true;
+        }
+        return false;
+    }
+    List<int> TimViTriDSMucTieuConSong(Character[] arrEnemy)
+    {
+        List<int> lst = new List<int>();
+        for (int i = 0; i < arrEnemy.Length; i++)
+        {
+            if (!arrEnemy[i].flagDie)
+            {
+                //tìm được mục tiêu còn sống mới 
+                lst.Add(i);
+            }
+        }
+        return lst;
     }
     public void OnAttack(Character[] arrEnemy)
     {
         if (flagCoDinh)
             DanhMucTieuCoDinh(this, arrEnemy);
+        if (flagNgauNhien)
+            DanhMucTieuNgauNhien(this, arrEnemy);
         this.switchAnimation("Attack");
     }
-    public void XuLyDame(Character CharacterCong,Character CharacterThu)
+    public void XuLyDame(Character CharacterCong, Character CharacterThu)
     {
         CharacterThu.curHealth -= CharacterCong.dame; // xử lý tính sát thương tại đây
     }
@@ -205,7 +276,7 @@ public class Character: MonoBehaviour
         {
             anim.clip = anim.GetClip(state);
         }
-        anim.Play();      
+        anim.Play();
     }
     void decreaseHealth() // Xử lý giao diện thanh máu
     {
