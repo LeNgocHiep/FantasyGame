@@ -5,19 +5,30 @@ using UnityEngine.UI;
 
 public class ChonTuongTrongDanhSach : MonoBehaviour {
     public static ChonTuongTrongDanhSach sceneChonHero;
+    public GameObject prefabsKhung;
     public Transform transListTuong;
     public Transform[] listOTuong;
     public GameObject maskBtnStartGame;
-    public int[] danhdauDaCo= new int[] { -1,-1,-1,-1,-1};
+    public int[] danhdauDaCo = new int[] { -1,-1,-1,-1,-1};
 
     private void Awake()
     {
         sceneChonHero = this;
     }
 
+    private void Start()
+    {
+        for (int i = 0; i < Preload.Global.vitriTuongDangCo.Count;i++)
+        {
+           GameObject g =  Instantiate(prefabsKhung, transListTuong);
+            g.transform.GetChild(0).GetComponent<Image>().sprite = Preload.Global.listImageTuong[Preload.Global.vitriTuongDangCo[i]];
+            g.GetComponent<KhungTuong>().IndexTuong = i;
+        }
+    }
+
     public void clickChonTuong(int indexTuong)
     {
-        GameObject g =  transListTuong.GetChild(indexTuong).gameObject;
+        GameObject g = transListTuong.GetChild(indexTuong).gameObject;
         if (g.transform.GetChild(1).gameObject.activeSelf)
         {
             //không làm chi hết
@@ -34,7 +45,7 @@ public class ChonTuongTrongDanhSach : MonoBehaviour {
         }
     }
 
-    void GanHinhLenO(GameObject g,int indexTuong)
+    void GanHinhLenO(GameObject g, int indexTuong)
     {
         for (int i = 0; i < listOTuong.Length; i++)
         {
@@ -71,9 +82,20 @@ public class ChonTuongTrongDanhSach : MonoBehaviour {
 
     public void clickStartTranDau()
     {
+        for(int i = 0; i < danhdauDaCo.Length; i++)
+        {
+            Debug.Log(danhdauDaCo[i]);
+        }
+
         if (maskBtnStartGame.activeSelf)
             return;
         else
-            UnityEngine.SceneManagement.SceneManager.LoadScene(3);
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Match");
     }
+
+    public void clickBack()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+    }
+
 }

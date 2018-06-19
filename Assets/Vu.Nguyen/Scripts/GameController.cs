@@ -4,36 +4,9 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    //<<<<<<< HEAD
-
-    //    public Heros[] allHeros;
-
-    //    public Enemy[] lstenemey;
-    //    private Heros[] lstHeros;
-    //    public GameObject[] vitri;
-    //    public Transform transHerro;
-
-    //    private void Start()
-    //    {
-    //        lstHeros = new Heros[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo.Length];
-    //        for (int i = 0; i < 5;i++)
-    //        {
-    //            lstHeros[i] = Instantiate(allHeros[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo[i]],transHerro);
-    //            lstHeros[i].transform.localPosition = vitri[i].transform.localPosition;
-    //            lstHeros[i].vitri = i;
-    //        }
-    //    }
-
-    //    private void Update()
-    //    {
-    //        return;
-    //        TurnActive(lstenemey, lstHeros);
-    //=======
-
-
-        public GameObject[] vitri;
-        public Transform transHerro;
-    public Character[] allHerro;
+    public GameObject[] vitri;
+    public Transform transHerro;
+    //public Character[] allHerro;
     public Character[] lstenemey;
     public Character[] lstHero;
 
@@ -42,9 +15,9 @@ public class GameController : MonoBehaviour
         lstHero = new Character[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo.Length];
         for (int i = 0; i < 5; i++)
         {
-            lstHero[i] = Instantiate(allHerro[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo[i]], transHerro);
+            GameObject g = Instantiate(Preload.Global.listTuong[Preload.Global.vitriTuongDangCo[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo[i]]], transHerro);
+            lstHero[i] = g.GetComponent<Character>();
             lstHero[i].transform.localPosition = vitri[i].transform.localPosition;
-           // lstHero[i].v = i;
         }
     }
 

@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour {
 
-    public Text txt;
     public float scrollSpeed;
     private Vector3 drag;
     private Vector3 click; 
@@ -48,11 +47,13 @@ public class CameraController : MonoBehaviour {
             Debug.Log("click");
             RaycastHit2D hit = Physics2D.GetRayIntersection(Camera.main.ScreenPointToRay(Input.mousePosition));
             if (hit.collider == null)
-                txt.text = "null";
+                return;
             else
             {
-                txt.text = hit.collider.name;
-                UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+                if (hit.collider.name.Equals("Dau_Truong"))
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("preGame");
+                if (hit.collider.name.Equals("Tran_Phap"))
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("allHerro");
             }
                 click = Vector3.zero;
         }

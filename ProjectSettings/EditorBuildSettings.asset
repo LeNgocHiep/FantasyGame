@@ -17,4 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Match.unity
     guid: 7c29fa20ea186fb45b5b9210080e00c5
-  m_configObjects: {}
+  - enabled: 1
+    path: Assets/Vu.Nguyen/Scenes/preload.unity
+    guid: 96192f7ebf682ca49bdeba640dc45c40
+  - enabled: 1
+    path: Assets/Vu.Nguyen/Scenes/allHerro.unity
+    guid: a9e40595d69589246a2e60ee2987a499

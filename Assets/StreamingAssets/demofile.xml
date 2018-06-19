@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Setting>
+  <name>Vu</name>
+  <sott>1</sott>
+  <vt>
+    <x>0</x>
+    <y>0</y>
+    <z>0</z>
+  </vt>
+  <color>
+    <r>1</r>
+    <g>0</g>
+    <b>0</b>
+    <a>1</a>
+  </color>
+</Setting>
