@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+
+    public GameObject logoWin;
+    public GameObject logoLose;
     public GameObject[] vitri;
     public Transform transHerro;
-    //public Character[] allHerro;
     public Character[] lstenemey;
     public Character[] lstHero;
 
@@ -18,12 +20,21 @@ public class GameController : MonoBehaviour
             GameObject g = Instantiate(Preload.Global.listTuong[Preload.Global.vitriTuongDangCo[ChonTuongTrongDanhSach.sceneChonHero.danhdauDaCo[i]]], transHerro);
             lstHero[i] = g.GetComponent<Character>();
             lstHero[i].transform.localPosition = vitri[i].transform.localPosition;
+           // lstHero[i].v = i;
         }
     }
 
     private void Update()
     {
         TurnActive(lstenemey, lstHero);
+        if (CheckCharactersWin())
+        {
+            logoWin.gameObject.SetActive(true);
+        }
+        if (CheckEnemyWin())
+        {
+            logoLose.gameObject.SetActive(true);
+        }
     }
 
     bool CheckCharactersWin()
@@ -61,7 +72,7 @@ public class GameController : MonoBehaviour
                 iHeros = CharacterDuocChon(arrHeros);
                 if (arrHeros[iHeros].flagDie)
                     iHeros = CharacterDuocChon(arrHeros);
-                CharacterTanCong(arrHeros[iHeros], iHeros, arrEnemy);
+                CharacterTanCong(arrHeros[iHeros], iHeros, arrEnemy, arrHeros);
                 ResetFlagDanhRoiCharacter(arrEnemy);
                 flagTurn = false;
                 Debug.Log("FlagTurn:" + flagTurn);
@@ -79,7 +90,7 @@ public class GameController : MonoBehaviour
                         return;
 
                     }
-                    CharacterTanCong(arrHeros[iHeros], iHeros, arrEnemy);
+                    CharacterTanCong(arrHeros[iHeros], iHeros, arrEnemy,arrHeros);
                     ResetFlagDanhRoiCharacter(arrEnemy);
                     flagTurn = false;
                     Debug.Log("FlagTurn:" + flagTurn);
@@ -99,7 +110,7 @@ public class GameController : MonoBehaviour
                     Debug.Log("Reset Vong danh -> Round2:" + iEnemy);
                     iHeros = CharacterDuocChon(arrHeros);
                 }
-                CharacterTanCong(arrEnemy[iEnemy], iEnemy, arrHeros);
+                CharacterTanCong(arrEnemy[iEnemy], iEnemy, arrHeros,arrEnemy);
                 flagTurn = true;
                 Debug.Log("FlagTurn:" + flagTurn);
                 ResetFlagDanhRoiCharacter(arrHeros);
@@ -157,13 +168,13 @@ public class GameController : MonoBehaviour
         }
         Debug.Log("Reset tranng thai ENEMY");
     }
-    void CharacterTanCong(Character Characters, int stt, Character[] arrEnemy) //stt : là vị trí của Character trong mảng lstCharacter
+    void CharacterTanCong(Character Characters, int stt, Character[] arrEnemy,Character[] arrHeros) //stt : là vị trí của Character trong mảng lstCharacter
     {
         //Kiểm tra trạng thái sống chết của Character
         if (Characters.flagDie)
             return;
 
-        Characters.OnAttack(arrEnemy);
+        Characters.OnAttack(arrEnemy,arrHeros);
 
     }
 }

@@ -24,10 +24,9 @@ public class Preload : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        duLieu = new DuLieuNguoiChoi();
+       duLieu = new DuLieuNguoiChoi();
         Global = this;
         duLieu = (DuLieuNguoiChoi)XuLyFile<DuLieuNguoiChoi>(Application.streamingAssetsPath, "DuLieuNguoiChoi.xml", duLieu);
-
         for(int i = 0; i < duLieu.tuongDaCo.Length; i++)
         {
             if (duLieu.tuongDaCo[i] == 1)
@@ -62,59 +61,31 @@ public class Preload : MonoBehaviour {
         return classobject;
     }
 
-    public static string GetXMLFromObject(object o)
+
+    public void FileVu(string path, string pathFolder)
     {
-        StringWriter sw = new StringWriter();
-        XmlTextWriter tw = null;
-        try
+        if (!Directory.Exists(path))
         {
-            XmlSerializer serializer = new XmlSerializer(o.GetType());
-            tw = new XmlTextWriter(sw);
-            serializer.Serialize(tw, o);
+            Directory.CreateDirectory(pathFolder);
+            GhiFile(pathFolder + "/" + path);
         }
-        catch (Exception ex)
-        {
-            //Handle Exception Code
-        }
-        finally
-        {
-            sw.Close();
-            if (tw != null)
-            {
-                tw.Close();
-            }
-        }
-        return sw.ToString();
+        DocFile(pathFolder + "/" + path);
     }
-    public static System.Object ObjectToXML(string xml, Type objectType)
+
+    void DocFile(string path)
     {
-        StringReader strReader = null;
-        XmlSerializer serializer = null;
-        XmlTextReader xmlReader = null;
-        System.Object obj = null;
-        try
-        {
-            strReader = new StringReader(xml);
-            serializer = new XmlSerializer(objectType);
-            xmlReader = new XmlTextReader(strReader);
-            obj = serializer.Deserialize(xmlReader);
-        }
-        catch (Exception exp)
-        {
-            //Handle Exception Code
-        }
-        finally
-        {
-            if (xmlReader != null)
-            {
-                xmlReader.Close();
-            }
-            if (strReader != null)
-            {
-                strReader.Close();
-            }
-        }
-        return obj;
+        var serializer = new XmlSerializer(typeof(DuLieuNguoiChoi));
+        var stream = new FileStream(path, FileMode.Open);
+       duLieu = serializer.Deserialize(stream) as DuLieuNguoiChoi;
+        stream.Close();
+    }
+
+    void GhiFile(string path)
+    {
+        var serializer = new XmlSerializer(typeof(DuLieuNguoiChoi));
+        var stream = new FileStream(path, FileMode.Create);
+        serializer.Serialize(stream, this);
+        stream.Close();
     }
 
 
